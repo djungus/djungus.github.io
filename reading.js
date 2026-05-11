@@ -19,6 +19,28 @@ function openModal(data) {
 
   const preview = document.getElementById('modal-preview');
   preview.style.background = data.color;
+  preview.style.backgroundImage = 'none';
+  preview.innerHTML = '<span style="color:rgba(255,255,255,0.5);font-size:0.8rem;text-align:center;padding:10px;display:block;margin-top:50px;">Loading cover...</span>';
+
+  // Fetch cover from Open Library
+  const query = encodeURIComponent(`${data.title} ${data.author}`);
+  fetch(`https://openlibrary.org/search.json?q=${query}&limit=1`)
+    .then(res => res.json())
+    .then(json => {
+      preview.innerHTML = '';
+      if (json.docs && json.docs.length > 0 && json.docs[0].cover_i) {
+        const coverUrl = `https://covers.openlibrary.org/b/id/${json.docs[0].cover_i}-L.jpg`;
+        preview.style.backgroundImage = `url('${coverUrl}')`;
+        preview.style.backgroundSize = 'cover';
+        preview.style.backgroundPosition = 'center';
+      } else {
+        preview.innerHTML = '<span style="color:rgba(255,255,255,0.5);font-size:0.8rem;text-align:center;padding:10px;display:block;margin-top:50px;">No cover found</span>';
+      }
+    })
+    .catch(err => {
+      preview.innerHTML = '';
+      console.error('Failed to load cover:', err);
+    });
 
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';

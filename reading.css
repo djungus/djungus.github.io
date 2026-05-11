@@ -158,11 +158,6 @@
   background: linear-gradient(90deg, rgba(0,0,0,0.25), transparent);
   border-radius: 3px 0 0 3px;
 }
-.book-spine::before {
-  content: '';
-  position: absolute; right: 0; top: 8px; bottom: 8px; width: 1px;
-  background: rgba(0,0,0,0.15);
-}
 
 /* Tooltip for Title */
 .book::after {
@@ -222,38 +217,33 @@
 
 /* Spine text */
 .book-spine {
-  position: absolute; inset: 0;
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 22px;
+  background: #111;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
-  padding: 12px 3px;
+  padding: 12px 0;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   overflow: hidden;
+  border-radius: 3px 0 0 3px;
+  box-shadow: 2px 0 4px rgba(0,0,0,0.4);
 }
 .spine-title {
   font-size: 0.75rem;
   font-weight: 700;
   color: #fff !important;
-  background: #111;
-  padding: 4px 2px;
-  border-radius: 2px;
+  background: transparent;
+  padding: 0;
   letter-spacing: 0.04em;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  max-height: 70%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  max-height: 95%;
 }
 .spine-author {
-  font-size: 0.55rem;
-  font-weight: 500;
-  color: #fff !important;
-  background: #111;
-  padding: 3px 2px;
-  border-radius: 2px;
-  margin-top: 4px;
-  white-space: nowrap;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  display: none;
 }
 
 /* ========== DESK & TO-READ PILE ========== */
