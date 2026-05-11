@@ -5,6 +5,15 @@
   padding: 10rem 2rem 3rem;
   max-width: 1200px; margin: 0 auto;
   animation: fadeInUp 0.6s ease both;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.hero-content {
+  flex: 1;
+  min-width: 300px;
 }
 .reading-title {
   font-family: 'Playfair Display', serif;
@@ -16,6 +25,59 @@
   background-clip: text;
 }
 .reading-subtitle { font-size: 1.1rem; color: var(--text-secondary); max-width: 500px; }
+
+/* ========== LEGEND WHEEL ========== */
+.legend-wheel-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  animation: fadeInUp 0.6s ease both;
+  animation-delay: 0.2s;
+}
+.color-wheel {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #6b46c1 0deg 60deg,    /* Psych (Purple) */
+    #38a169 60deg 120deg,  /* Memoirs (Green) */
+    #ed8936 120deg 180deg, /* Short Stories (Orange) */
+    #ecc94b 180deg 240deg, /* Fiction (Yellow) */
+    #e53e3e 240deg 300deg, /* Poetry (Red) */
+    #f7fafc 300deg 360deg  /* SciFi (White) */
+  );
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+.wheel-legend {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.color-dot.psych { background: #6b46c1; }
+.color-dot.memoirs { background: #38a169; }
+.color-dot.stories { background: #ed8936; }
+.color-dot.fiction { background: #ecc94b; }
+.color-dot.poetry { background: #e53e3e; }
+.color-dot.scifi { background: #f7fafc; border: 1px solid #ccc; }
 
 .reading-main {
   position: relative; z-index: 1;
@@ -29,28 +91,6 @@
 }
 
 /* ========== BOOKSHELF ========== */
-.color-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem 1.5rem;
-  margin-bottom: 2rem;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  animation: fadeInUp 0.6s ease both;
-  animation-delay: 0.1s;
-}
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.color-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  display: inline-block;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
-}
 
 .bookshelf { margin-bottom: 5rem; }
 
@@ -193,20 +233,27 @@
 .spine-title {
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--text-color, #fff);
+  color: #fff !important;
+  background: #111;
+  padding: 4px 2px;
+  border-radius: 2px;
   letter-spacing: 0.04em;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
   max-height: 70%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 .spine-author {
   font-size: 0.55rem;
-  font-weight: 400;
-  color: var(--text-color, #fff);
-  opacity: 0.7;
-  margin-top: 6px;
+  font-weight: 500;
+  color: #fff !important;
+  background: #111;
+  padding: 3px 2px;
+  border-radius: 2px;
+  margin-top: 4px;
   white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 /* ========== DESK & TO-READ PILE ========== */

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="reading.css">
+  <link rel="stylesheet" href="reading.css?v=2">
 </head>
 <body>
   <canvas id="bg-canvas"></canvas>
@@ -38,9 +38,23 @@
 
   <!-- Page Header -->
   <header class="reading-hero">
-    <span class="section-tag">03</span>
-    <h1 class="reading-title">The Bookshelf</h1>
-    <p class="reading-subtitle">Books that have shaped my thinking — past, present, and future.</p>
+    <div class="hero-content">
+      <span class="section-tag">03</span>
+      <h1 class="reading-title">The Bookshelf</h1>
+      <p class="reading-subtitle">Books that have shaped my thinking — past, present, and future.</p>
+    </div>
+    
+    <div class="legend-wheel-container">
+      <div class="color-wheel"></div>
+      <div class="wheel-legend">
+        <div class="legend-item"><span class="color-dot psych"></span> Psychology</div>
+        <div class="legend-item"><span class="color-dot memoirs"></span> Memoirs</div>
+        <div class="legend-item"><span class="color-dot stories"></span> Short Stories</div>
+        <div class="legend-item"><span class="color-dot fiction"></span> Fiction</div>
+        <div class="legend-item"><span class="color-dot poetry"></span> Poetry</div>
+        <div class="legend-item"><span class="color-dot scifi"></span> SciFi/Fantasy</div>
+      </div>
+    </div>
   </header>
 
   <!-- Main Content -->
@@ -50,15 +64,6 @@
       <!-- ===== BOOKSHELF ===== -->
       <div class="bookshelf">
         <h2 class="area-label">📖 Read & Currently Reading</h2>
-
-        <div class="color-legend">
-          <div class="legend-item"><span class="color-dot" style="background: linear-gradient(135deg, #4299e1, #805ad5);"></span> Psychology</div>
-          <div class="legend-item"><span class="color-dot" style="background: #38a169;"></span> Memoirs</div>
-          <div class="legend-item"><span class="color-dot" style="background: #ed8936;"></span> Short Stories/Illustrated</div>
-          <div class="legend-item"><span class="color-dot" style="background: linear-gradient(135deg, #ecc94b, #1a202c);"></span> Fiction</div>
-          <div class="legend-item"><span class="color-dot" style="background: #e53e3e;"></span> Poetry</div>
-          <div class="legend-item"><span class="color-dot" style="background: #f7fafc; border: 1px solid #ccc;"></span> SciFi/Fantasy</div>
-        </div>
 
         <!-- Shelf 1 -->
         <div class="shelf">
