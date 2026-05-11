@@ -21,7 +21,7 @@
       <div class="nav-links">
         <a href="#projects" class="nav-link" data-section="projects">Projects</a>
         <a href="#coding" class="nav-link" data-section="coding">Code</a>
-        <a href="#reading" class="nav-link" data-section="reading">Reading</a>
+        <a href="reading.html" class="nav-link">Reading</a>
         <a href="#contact" class="nav-link" data-section="contact">Contact</a>
       </div>
       <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
@@ -32,7 +32,7 @@
     <div class="mobile-menu" id="mobile-menu">
       <a href="#projects" class="mobile-link">Projects</a>
       <a href="#coding" class="mobile-link">Code</a>
-      <a href="#reading" class="mobile-link">Reading</a>
+      <a href="reading.html" class="mobile-link">Reading</a>
       <a href="#contact" class="mobile-link">Contact</a>
     </div>
   </nav>
@@ -220,87 +220,18 @@
     </div>
   </section>
 
-  <!-- Reading Section -->
+  <!-- Reading Teaser -->
   <section id="reading" class="section">
-    <div class="section-inner">
-      <div class="section-header">
+    <div class="section-inner" style="text-align:center; display:flex; flex-direction:column; align-items:center;">
+      <div class="section-header" style="display:flex; flex-direction:column; align-items:center;">
         <span class="section-tag">03</span>
         <h2 class="section-title">Reading</h2>
-        <p class="section-subtitle">Books, articles, and resources that have shaped my thinking.</p>
+        <p class="section-subtitle" style="text-align:center;">Books that have shaped my thinking — past, present, and future.</p>
       </div>
-      <div class="reading-grid">
-        <!-- Book Card 1 -->
-        <article class="book-card">
-          <div class="book-cover">
-            <div class="book-spine"></div>
-            <div class="book-cover-placeholder">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-              <span>Book Title</span>
-            </div>
-          </div>
-          <div class="book-info">
-            <h3 class="book-title">Your First Book</h3>
-            <span class="book-author">Author Name</span>
-            <div class="book-rating">
-              <span class="star filled">★</span>
-              <span class="star filled">★</span>
-              <span class="star filled">★</span>
-              <span class="star filled">★</span>
-              <span class="star">★</span>
-            </div>
-            <p class="book-thoughts">Add your thoughts and key takeaways from the book here.</p>
-            <span class="book-status status-reading">Currently Reading</span>
-          </div>
-        </article>
-
-        <!-- Book Card 2 -->
-        <article class="book-card">
-          <div class="book-cover">
-            <div class="book-spine"></div>
-            <div class="book-cover-placeholder alt">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-              <span>Book Title</span>
-            </div>
-          </div>
-          <div class="book-info">
-            <h3 class="book-title">Another Great Read</h3>
-            <span class="book-author">Author Name</span>
-            <div class="book-rating">
-              <span class="star filled">★</span>
-              <span class="star filled">★</span>
-              <span class="star filled">★</span>
-              <span class="star filled">★</span>
-              <span class="star filled">★</span>
-            </div>
-            <p class="book-thoughts">Replace this with your notes. What did you learn? What stood out?</p>
-            <span class="book-status status-finished">Finished</span>
-          </div>
-        </article>
-
-        <!-- Book Card 3 -->
-        <article class="book-card">
-          <div class="book-cover">
-            <div class="book-spine"></div>
-            <div class="book-cover-placeholder alt2">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-              <span>Book Title</span>
-            </div>
-          </div>
-          <div class="book-info">
-            <h3 class="book-title">On the Shelf</h3>
-            <span class="book-author">Author Name</span>
-            <div class="book-rating">
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-            </div>
-            <p class="book-thoughts">Haven't started this one yet? Mark it as "Want to Read" to keep track.</p>
-            <span class="book-status status-want">Want to Read</span>
-          </div>
-        </article>
-      </div>
+      <a href="reading.html" class="btn btn-primary" style="margin-top:1rem;">
+        <span>Browse the Bookshelf</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
   </section>
 
@@ -308,7 +239,7 @@
   <section id="contact" class="section section-alt">
     <div class="section-inner contact-section">
       <div class="section-header">
-        <span class="section-tag">04</span>
+        <span class="section-tag">03</span>
         <h2 class="section-title">Get In Touch</h2>
         <p class="section-subtitle">Want to collaborate, chat, or just say hi?</p>
       </div>
