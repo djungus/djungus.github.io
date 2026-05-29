@@ -1,0 +1,90 @@
+/* ========== PROJECTS PAGE HERO ========== */
+.projects-hero {
+  position: relative; z-index: 1;
+  padding: 10rem 2rem 3rem;
+  max-width: 1200px; margin: 0 auto;
+  animation: fadeInUp 0.6s ease both;
+}
+.projects-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700; letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #f5c542, #e85d4a, #c084fc);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.projects-subtitle { font-size: 1.1rem; color: var(--text-secondary); max-width: 500px; }
+
+/* ========== PROJECTS MAIN ========== */
+.projects-main {
+  position: relative; z-index: 1;
+  padding: 2rem 2rem 6rem;
+  max-width: 1200px; margin: 0 auto;
+}
+
+/* ========== PROJECT CARDS GRID ========== */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
+
+.project-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  transition: var(--transition); cursor: pointer;
+}
+.project-card:hover { background: var(--bg-card-hover); border-color: var(--border-hover); transform: translateY(-4px); }
+
+.card-image { height: 200px; background: var(--bg-secondary); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.card-image-placeholder { color: var(--text-muted); opacity: 0.4; }
+
+/* TrainOfThought featured image */
+.card-image-featured {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  position: relative;
+  overflow: hidden;
+}
+.card-image-featured::before {
+  content: '🚂💭';
+  font-size: 3rem;
+  filter: grayscale(0.2);
+  animation: float 3s ease-in-out infinite;
+}
+.card-image-featured::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(124, 92, 252, 0.15), transparent 70%);
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.card-content { padding: 1.5rem; }
+.card-tags { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+.tag { font-size: 0.7rem; font-weight: 600; padding: 0.25rem 0.75rem; border-radius: 999px; background: rgba(124,92,252,0.1); color: var(--accent-2); letter-spacing: 0.03em; }
+.tag-python { background: rgba(55, 118, 171, 0.15); color: #5ba0d0; }
+.tag-ai { background: rgba(251, 191, 36, 0.12); color: #fbbf24; }
+.tag-actions { background: rgba(74, 222, 128, 0.12); color: #4ade80; }
+
+.card-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
+.card-description { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem; }
+.card-footer { display: flex; align-items: center; justify-content: space-between; }
+.card-date { font-size: 0.8rem; color: var(--text-muted); font-family: var(--mono); }
+.card-link {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-size: 0.85rem; font-weight: 600; color: var(--accent-2);
+  transition: var(--transition);
+}
+.card-link:hover { gap: 0.6rem; }
+
+/* Add card */
+.add-card { border-style: dashed; display: flex; align-items: center; justify-content: center; min-height: 300px; }
+.add-card-inner { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; color: var(--text-muted); transition: var(--transition); }
+.add-card:hover .add-card-inner { color: var(--accent-2); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}

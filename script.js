@@ -1,6 +1,7 @@
 /* ========== Ambient Background ========== */
 (function initCanvas() {
   const canvas = document.getElementById('bg-canvas');
+  if (!canvas) return;
   const ctx = canvas.getContext('2d');
   let w, h, particles = [];
 
@@ -47,32 +48,24 @@
 
 /* ========== Navbar Scroll ========== */
 const navbar = document.getElementById('navbar');
-const navLinks = document.querySelectorAll('.nav-link');
-const sections = document.querySelectorAll('.section');
-
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
-
-  // Active section highlight
-  let current = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 200) current = s.getAttribute('id');
+if (navbar) {
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
   });
-  navLinks.forEach(l => {
-    l.classList.toggle('active', l.dataset.section === current);
-  });
-});
+}
 
 /* ========== Mobile Menu ========== */
 const toggle = document.getElementById('nav-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
-toggle.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-document.querySelectorAll('.mobile-link').forEach(link => {
-  link.addEventListener('click', () => mobileMenu.classList.remove('open'));
-});
+if (toggle && mobileMenu) {
+  toggle.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+}
 
 /* ========== Scroll Reveal ========== */
-const revealEls = document.querySelectorAll('.section-header, .project-card, .code-card, .book-card, .contact-card');
+const revealEls = document.querySelectorAll('.section-header, .project-card, .code-card, .book-card, .contact-card, .landing-card');
 revealEls.forEach(el => el.classList.add('reveal'));
 
 const observer = new IntersectionObserver((entries) => {

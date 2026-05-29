@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code & Dev — djungus</title>
+  <meta name="description" content="Coding projects by djungus — serious builds, open source, and technical deep dives.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="code.css">
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">djungus<span class="logo-dot">.</span></a>
+      <div class="nav-links">
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="code.html" class="nav-link active">Code</a>
+        <a href="reading.html" class="nav-link">Reading</a>
+      </div>
+      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="projects.html" class="mobile-link">Projects</a>
+      <a href="code.html" class="mobile-link">Code</a>
+      <a href="reading.html" class="mobile-link">Reading</a>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="code-hero">
+    <span class="section-tag">02</span>
+    <h1 class="code-title">Code & Dev</h1>
+    <p class="code-subtitle">Serious builds, open source contributions, and technical deep dives.</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="code-main">
+    <div class="code-projects">
+
+      <!-- TrainOfThought -->
+      <article class="code-card">
+        <div class="code-card-header">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          <div class="code-card-actions">
+            <span class="lang-badge">Automated</span>
+          </div>
+        </div>
+        <h3 class="code-card-title">trainofthought</h3>
+        <p class="code-card-desc">AI-curated newsletter pipeline using zero-dependency Python, GitHub Actions, and Google Gemini free tier. Runs twice weekly.</p>
+        <div class="code-card-footer">
+          <div class="code-card-stats">
+            <span class="code-stat">
+              <span class="lang-dot" style="background: #3572A5;"></span> Python
+            </span>
+          </div>
+          <a href="https://github.com/djungus/trainofthought" class="code-card-link" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+      </article>
+
+      <!-- djungus.github.io -->
+      <article class="code-card">
+        <div class="code-card-header">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          <div class="code-card-actions">
+            <span class="lang-badge">Live</span>
+          </div>
+        </div>
+        <h3 class="code-card-title">djungus.github.io</h3>
+        <p class="code-card-desc">This very website! Built from scratch with vanilla HTML, CSS, and JavaScript. Features an interactive bookshelf, genre color-coding, and local cover art.</p>
+        <div class="code-card-footer">
+          <div class="code-card-stats">
+            <span class="code-stat">
+              <span class="lang-dot" style="background: #f1e05a;"></span> HTML / CSS / JS
+            </span>
+          </div>
+          <a href="https://github.com/djungus/djungus.github.io" class="code-card-link" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+      </article>
+
+      <!-- Placeholder -->
+      <article class="code-card">
+        <div class="code-card-header">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          <div class="code-card-actions">
+            <span class="lang-badge">—</span>
+          </div>
+        </div>
+        <h3 class="code-card-title">next-project</h3>
+        <p class="code-card-desc">A placeholder for your next coding project. Link it to your GitHub repo!</p>
+        <div class="code-card-footer">
+          <div class="code-card-stats">
+            <span class="code-stat">
+              <span class="lang-dot"></span> Language TBD
+            </span>
+          </div>
+          <a href="https://github.com/djungus" class="code-card-link" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">djungus<span class="logo-dot">.</span></span>
+      <span class="footer-copy">© 2026 · Built from scratch with ♥</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
