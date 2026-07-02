@@ -87,3 +87,85 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (target) target.scrollIntoView({ behavior: 'smooth' });
   });
 });
+
+/* ========== Projects Page Timeline ========== */
+(function initTimeline() {
+  const section = document.getElementById('timeline-sec');
+  const container = document.getElementById('timeline-container');
+  const progressPath = document.getElementById('timeline-progress');
+  if (!section || !container || !progressPath) return;
+
+  // Initialize SVG path drawing length
+  const pathLength = progressPath.getTotalLength();
+  progressPath.style.strokeDasharray = pathLength;
+  progressPath.style.strokeDashoffset = pathLength;
+
+  // Dynamically inject an SVG gradient definition for the timeline progress line
+  const svg = progressPath.ownerSVGElement;
+  if (svg) {
+    const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+    defs.innerHTML = `
+      <linearGradient id="timeline-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="var(--accent-2)" />
+        <stop offset="40%" stop-color="#f43f5e" />
+        <stop offset="100%" stop-color="var(--accent-3)" />
+      </linearGradient>
+    `;
+    svg.insertBefore(defs, svg.firstChild);
+  }
+
+  function updateTimeline() {
+    const rect = section.getBoundingClientRect();
+    const sectionHeight = rect.height;
+    const viewHeight = window.innerHeight;
+
+    // Calculate scroll progress through the timeline section
+    const sectionTopFromCenter = rect.top - (viewHeight * 0.4);
+    const scrollDistance = -sectionTopFromCenter;
+    const maxScroll = sectionHeight - (viewHeight * 0.4);
+
+    let progress = Math.max(0, Math.min(1, scrollDistance / (maxScroll || 1)));
+
+    // Update SVG progress line
+    progressPath.style.strokeDashoffset = pathLength - (progress * pathLength);
+
+    // Pivot at ~35% scroll depth (roughly at Node 5 position)
+    const pivotThreshold = 0.35; 
+
+    if (progress >= pivotThreshold) {
+      // Shift container to the right by 200px to center the X=200 vertical track
+      container.style.transform = 'translateX(200px)';
+      section.classList.add('state-blue');
+    } else {
+      container.style.transform = 'translateX(0)';
+      section.classList.remove('state-blue');
+    }
+  }
+
+  window.addEventListener('scroll', updateTimeline);
+  window.addEventListener('resize', () => {
+    const newLength = progressPath.getTotalLength();
+    progressPath.style.strokeDasharray = newLength;
+    updateTimeline();
+  });
+  
+  updateTimeline();
+
+  // Highlight active nodes as they scroll near the viewport center
+  const nodeItems = document.querySelectorAll('.timeline-node-item');
+  const nodeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      } else {
+        entry.target.classList.remove('active');
+      }
+    });
+  }, {
+    rootMargin: '-25% 0px -25% 0px',
+    threshold: 0
+  });
+
+  nodeItems.forEach(node => nodeObserver.observe(node));
+})();
+
