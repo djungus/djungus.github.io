@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Journey — djungus</title>
+  <meta name="description" content="An interactive visual timeline of key milestones and pivots.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="timeline.css">
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">djungus<span class="logo-dot">.</span></a>
+      <div class="nav-links">
+        <a href="projects.html" class="nav-link active">Projects</a>
+        <a href="code.html" class="nav-link">Code</a>
+        <a href="reading.html" class="nav-link">Reading</a>
+      </div>
+      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="projects.html" class="mobile-link">Projects</a>
+      <a href="code.html" class="mobile-link">Code</a>
+      <a href="reading.html" class="mobile-link">Reading</a>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="timeline-hero">
+    <a href="projects.html" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to Projects
+    </a>
+    <h1 class="timeline-page-title">My Journey</h1>
+    <p class="timeline-page-subtitle">Hover over the nodes to explore key milestones. Scroll to see the path shift and split.</p>
+  </header>
+
+  <!-- Timeline -->
+  <section class="timeline-section" id="timeline-sec">
+    <div class="timeline-wrapper">
+      <div class="timeline-container" id="timeline-container">
+
+        <!-- SVG Path -->
+        <svg class="timeline-svg" viewBox="0 0 800 1850" xmlns="http://www.w3.org/2000/svg">
+          <path class="timeline-track"
+                d="M400,50 L400,700 L200,600 L200,1400
+                   M200,1400 L100,1480 L100,1750
+                   M200,1400 L300,1480 L300,1750" />
+          <path class="timeline-progress" id="timeline-progress"
+                d="M400,50 L400,700 L200,600 L200,1400
+                   M200,1400 L100,1480 L100,1750
+                   M200,1400 L300,1480 L300,1750" />
+        </svg>
+
+        <!-- Nodes 1-5 : centred at x=400 -->
+        <div class="timeline-node" style="left:400px;top:100px" data-side="right">
+          <div class="node-dot"></div>
+          <div class="node-blurb"><span class="node-year">2021</span><h4>The Spark</h4><p></p></div>
+        </div>
+
+        <div class="timeline-node" style="left:400px;top:250px" data-side="left">
+          <div class="node-dot"></div>
+          <div class="node-blurb"><span class="node-year">2022</span><h4>Hello GitHub</h4><p></p></div>
+        </div>
+
+        <div class="timeline-node" style="left:400px;top:400px" data-side="right">
+          <div class="node-dot"></div>
+          <div class="node-blurb"><span class="node-year">2023</span><h4>Automation Era</h4><p></p></div>
+        </div>
+
+        <div class="timeline-node" style="left:400px;top:550px" data-side="left">
+          <div class="node-dot"></div>
+          <div class="node-blurb"><span class="node-year">2024</span><h4>Portfolio Launch</h4><p></p></div>
+        </div>
+
+        <div class="timeline-node" style="left:400px;top:700px" data-side="right">
+          <div class="node-dot"></div>
+          <div class="node-blurb"><span class="node-year">2024</span><h4>The Pivot</h4><p></p></div>
+        </div>
+
+        <!-- Nodes 6-10 : shifted to x=200 after diagonal -->
+        <div class="timeline-node" style="left:200px;top:800px" data-side="left">
+          <div class="node-dot"></div>
+          <div class="node-blurb"><span class="node-year">2025</span><h4>Pipeline Sketch</h4><p></p></div>
+        </div>
+
+        <div class="timeline-node" style="left:200px;top:950px" data-side="right">
+          <div class="node-dot"></div>
+          <div class="node-blurb"><span class="node-year">2025</span><h4>Integrating Gemini</h4><p></p></div>
+        </div>
+
+        <div class="timeline-node" style="left:200px;top:1100px" data-side="left">
+          <div class="node-dot"></div>
+          <div class="node-blurb"><span class="node-year">2025</span><h4>GitHub Actions Setup</h4><p></p></div>
+        </div>
+
+        <div class="timeline-node" style="left:200px;top:1250px" data-side="right">
+          <div class="node-dot"></div>
+          <div class="node-blurb"><span class="node-year">2026</span><h4>Public Launch</h4><p></p></div>
+        </div>
+
+        <div class="timeline-node" style="left:200px;top:1400px" data-side="left">
+          <div class="node-dot"></div>
+          <div class="node-blurb"><span class="node-year">2026</span><h4>The Parallel Paths</h4><p></p></div>
+        </div>
+
+        <!-- Parallel tracks after node 10 -->
+        <div class="timeline-node" style="left:100px;top:1550px" data-side="left">
+          <div class="node-dot"></div>
+          <div class="node-blurb"><span class="node-year">2026</span><h4>Track A: Frontend UI</h4><p></p></div>
+        </div>
+
+        <div class="timeline-node" style="left:300px;top:1550px" data-side="right">
+          <div class="node-dot"></div>
+          <div class="node-blurb"><span class="node-year">2026</span><h4>Track B: AI Engineering</h4><p></p></div>
+        </div>
+
+        <div class="timeline-node" style="left:100px;top:1700px" data-side="left">
+          <div class="node-dot"></div>
+          <div class="node-blurb"><span class="node-year">2026</span><h4>Aesthetics &amp; Motion</h4><p></p></div>
+        </div>
+
+        <div class="timeline-node" style="left:300px;top:1700px" data-side="right">
+          <div class="node-dot"></div>
+          <div class="node-blurb"><span class="node-year">2026</span><h4>Systems Design</h4><p></p></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">djungus<span class="logo-dot">.</span></span>
+      <span class="footer-copy">&copy; 2026 &middot; Built from scratch with &hearts;</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="timeline.js"></script>
+</body>
+</html>

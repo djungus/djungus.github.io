@@ -61,12 +61,35 @@
   50% { transform: translateY(-8px); }
 }
 
+/* My Journey card image */
+.card-image-journey {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 40%, #0f1b3d 100%);
+  position: relative;
+  overflow: hidden;
+}
+.card-image-journey::before {
+  content: '🗺️✨';
+  font-size: 3rem;
+  animation: float 3.5s ease-in-out infinite;
+}
+.card-image-journey::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 40%, rgba(244, 63, 94, 0.12), transparent 60%),
+              radial-gradient(ellipse at 30% 70%, rgba(56, 189, 248, 0.08), transparent 50%);
+}
+
 .card-content { padding: 1.5rem; }
 .card-tags { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
 .tag { font-size: 0.7rem; font-weight: 600; padding: 0.25rem 0.75rem; border-radius: 999px; background: rgba(124,92,252,0.1); color: var(--accent-2); letter-spacing: 0.03em; }
 .tag-python { background: rgba(55, 118, 171, 0.15); color: #5ba0d0; }
 .tag-ai { background: rgba(251, 191, 36, 0.12); color: #fbbf24; }
 .tag-actions { background: rgba(74, 222, 128, 0.12); color: #4ade80; }
+.tag-interactive { background: rgba(244, 63, 94, 0.12); color: #fb7185; }
+.tag-svg { background: rgba(56, 189, 248, 0.12); color: #38bdf8; }
 
 .card-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
 .card-description { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem; }
@@ -88,291 +111,3 @@
 @media (max-width: 768px) {
   .projects-grid { grid-template-columns: 1fr; }
 }
-
-/* ========== TIMELINE SECTION ========== */
-.timeline-section {
-  position: relative;
-  z-index: 1;
-  padding: 8rem 2rem;
-  margin-top: 6rem;
-  overflow: hidden;
-  transition: background 1s ease;
-}
-
-/* Pink to Blue Background Glow Layers */
-.timeline-section::before,
-.timeline-section::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  transition: opacity 1.2s ease-in-out;
-}
-
-/* Pink / Rose Glow Theme (Default Top) */
-.timeline-section::before {
-  background: radial-gradient(circle at 50% 30%, rgba(244, 63, 94, 0.08) 0%, transparent 60%),
-              radial-gradient(circle at 30% 60%, rgba(192, 132, 252, 0.04) 0%, transparent 50%);
-  opacity: 1;
-}
-
-/* Blue Glow Theme (Active when class is added) */
-.timeline-section::after {
-  background: radial-gradient(circle at 50% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 60%),
-              radial-gradient(circle at 70% 40%, rgba(56, 189, 248, 0.04) 0%, transparent 50%);
-  opacity: 0;
-}
-
-.timeline-section.state-blue::before { opacity: 0; }
-.timeline-section.state-blue::after { opacity: 1; }
-
-.timeline-header {
-  text-align: center;
-  margin-bottom: 5rem;
-}
-.timeline-main-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, var(--accent-2), #f43f5e, var(--accent-3));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.timeline-subtitle {
-  font-size: 1rem;
-  color: var(--text-secondary);
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-/* Timeline Track Wrapper & SVG */
-.timeline-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  min-height: 1950px;
-  display: flex;
-  justify-content: center;
-}
-
-.timeline-container {
-  position: relative;
-  width: 800px;
-  height: 1850px;
-  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
-  transform-origin: center top;
-}
-
-.timeline-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  pointer-events: none;
-}
-
-.timeline-track {
-  stroke: rgba(255, 255, 255, 0.06);
-  stroke-width: 4px;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.timeline-progress {
-  stroke: url(#timeline-grad);
-  stroke-width: 4px;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 6000;
-  stroke-dashoffset: 6000;
-  transition: stroke-dashoffset 0.1s linear;
-  filter: drop-shadow(0 0 8px rgba(124, 92, 252, 0.4));
-}
-
-/* Gradient for the timeline line */
-svg.timeline-svg {
-  --grad-start: var(--accent-2);
-  --grad-mid: #f43f5e;
-  --grad-end: var(--accent-3);
-}
-
-/* Nodes & Interactivity */
-.timeline-node-item {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  cursor: pointer;
-}
-
-.node-dot {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--bg-primary);
-  border: 3px solid var(--text-muted);
-  box-shadow: 0 0 0 0px rgba(255,255,255,0);
-  transition: var(--transition), border-color 0.4s ease;
-}
-
-.timeline-node-item:hover .node-dot,
-.timeline-node-item.active .node-dot {
-  border-color: var(--accent-2);
-  background: #ffffff;
-  transform: scale(1.25);
-  box-shadow: 0 0 15px var(--accent-2);
-}
-
-/* Node Blurbs */
-.node-blurb {
-  position: absolute;
-  width: 280px;
-  padding: 1.25rem;
-  background: rgba(14, 14, 20, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  opacity: 0.25;
-  transform: translateY(-50%) scale(0.95);
-  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-  pointer-events: none;
-}
-
-.timeline-node-item[data-side="left"] .node-blurb {
-  right: 40px;
-  top: 50%;
-  transform-origin: right center;
-}
-
-.timeline-node-item[data-side="right"] .node-blurb {
-  left: 40px;
-  top: 50%;
-  transform-origin: left center;
-}
-
-.timeline-node-item:hover .node-blurb,
-.timeline-node-item.active .node-blurb {
-  opacity: 1;
-  transform: translateY(-50%) scale(1);
-  pointer-events: auto;
-  border-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4),
-              inset 0 1px 0 rgba(255,255,255,0.05);
-}
-
-/* Custom coloring based on side/status */
-.timeline-node-item:hover .node-blurb h4,
-.timeline-node-item.active .node-blurb h4 {
-  color: var(--text-primary);
-}
-
-.timeline-section.state-blue .timeline-node-item:hover .node-dot,
-.timeline-section.state-blue .timeline-node-item.active .node-dot {
-  border-color: var(--accent-3);
-  box-shadow: 0 0 15px var(--accent-3);
-}
-
-.node-year {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--accent-1);
-  display: block;
-  margin-bottom: 0.25rem;
-}
-
-.timeline-section.state-blue .node-year {
-  color: var(--accent-3);
-}
-
-.node-blurb h4 {
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: 0.35rem;
-  color: var(--text-secondary);
-  transition: color 0.3s ease;
-}
-
-.node-blurb p {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-/* Parallel styles */
-.timeline-node-item.parallel .node-dot {
-  border-color: var(--text-muted);
-}
-
-/* Mobile Responsive Styling for Timeline */
-@media (max-width: 900px) {
-  .timeline-wrapper {
-    min-height: auto;
-    padding: 0 1rem;
-  }
-  
-  .timeline-container {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-    transform: none !important; /* Disable shift on mobile */
-  }
-
-  .timeline-svg {
-    display: none; /* Hide complex path on mobile, use simple CSS borders */
-  }
-
-  .timeline-node-item {
-    position: relative;
-    left: auto !important;
-    top: auto !important;
-    transform: none !important;
-    display: flex;
-    gap: 1.5rem;
-    align-items: flex-start;
-    width: 100%;
-  }
-
-  .node-dot {
-    flex-shrink: 0;
-    margin-top: 0.5rem;
-    position: relative;
-  }
-
-  .node-dot::after {
-    content: '';
-    position: absolute;
-    top: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 3rem;
-    background: var(--border);
-    z-index: -1;
-  }
-
-  .timeline-node-item:last-child .node-dot::after {
-    display: none;
-  }
-
-  .node-blurb {
-    position: relative;
-    width: 100%;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-    transform: none !important;
-    opacity: 1;
-    pointer-events: auto;
-    background: var(--bg-card);
-  }
-}
-

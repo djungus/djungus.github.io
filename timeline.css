@@ -1,0 +1,233 @@
+/* ========== TIMELINE PAGE ========== */
+
+/* ---- Page Hero ---- */
+.timeline-hero {
+  position: relative; z-index: 1;
+  padding: 10rem 2rem 3rem;
+  max-width: 1200px; margin: 0 auto;
+  animation: fadeInUp 0.6s ease both;
+}
+.timeline-page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700; letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--accent-2), #f43f5e, var(--accent-3));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.timeline-page-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+}
+
+/* ---- Section Wrapper ---- */
+.timeline-section {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 2rem 10rem;
+  overflow: hidden;
+  transition: background 1s ease;
+}
+
+/* ---- Pink → Blue Background Glow ---- */
+.timeline-section::before,
+.timeline-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  transition: opacity 1.2s ease-in-out;
+}
+.timeline-section::before {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(244, 63, 94, 0.07) 0%, transparent 55%),
+    radial-gradient(circle at 30% 50%, rgba(192, 132, 252, 0.04) 0%, transparent 45%);
+  opacity: 1;
+}
+.timeline-section::after {
+  background:
+    radial-gradient(circle at 50% 60%, rgba(59, 130, 246, 0.07) 0%, transparent 55%),
+    radial-gradient(circle at 70% 35%, rgba(56, 189, 248, 0.04) 0%, transparent 45%);
+  opacity: 0;
+}
+.timeline-section.state-blue::before { opacity: 0; }
+.timeline-section.state-blue::after  { opacity: 1; }
+
+/* ---- Track Container ---- */
+.timeline-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  min-height: 1950px;
+  display: flex;
+  justify-content: center;
+}
+.timeline-container {
+  position: relative;
+  width: 800px;
+  height: 1850px;
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-origin: center top;
+}
+
+/* ---- SVG Tracks ---- */
+.timeline-svg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.timeline-track {
+  stroke: rgba(255,255,255,0.06);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+.timeline-progress {
+  stroke: url(#timeline-grad);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  stroke-dasharray: 6000;
+  stroke-dashoffset: 6000;
+  transition: stroke-dashoffset 0.08s linear;
+  filter: drop-shadow(0 0 6px rgba(124,92,252,0.35));
+}
+
+/* ---- Node Dots ---- */
+.timeline-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  cursor: pointer;
+}
+.node-dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 3px solid var(--text-muted);
+  transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+.timeline-node:hover .node-dot {
+  border-color: var(--accent-2);
+  background: #fff;
+  transform: scale(1.4);
+  box-shadow: 0 0 18px var(--accent-2);
+}
+.timeline-section.state-blue .timeline-node:hover .node-dot {
+  border-color: var(--accent-3);
+  box-shadow: 0 0 18px var(--accent-3);
+}
+
+/* ---- Blurb Cards (hidden until hover) ---- */
+.node-blurb {
+  position: absolute;
+  width: 260px;
+  padding: 1.15rem 1.25rem;
+  background: rgba(14,14,20,0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+
+  /* hidden by default */
+  opacity: 0;
+  transform: translateY(-50%) scale(0.92);
+  transition: all 0.4s cubic-bezier(0.25,1,0.5,1);
+}
+
+/* Side positioning */
+.timeline-node[data-side="right"] .node-blurb {
+  left: 36px; top: 50%;
+  transform-origin: left center;
+}
+.timeline-node[data-side="left"] .node-blurb {
+  right: 36px; top: 50%;
+  transform-origin: right center;
+}
+
+/* Visible on hover */
+.timeline-node:hover .node-blurb {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+  pointer-events: auto;
+  border-color: rgba(255,255,255,0.14);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.45),
+              inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* Blurb inner typography */
+.node-year {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-1);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.timeline-section.state-blue .node-year { color: var(--accent-3); }
+
+.node-blurb h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+.timeline-node:hover .node-blurb h4 { color: var(--text-primary); }
+
+.node-blurb p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  min-height: 0;
+}
+
+/* ---- Back Link ---- */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  margin-bottom: 1.5rem;
+}
+.back-link:hover { color: var(--text-primary); gap: 0.6rem; }
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .timeline-wrapper { min-height: auto; padding: 0 0.5rem; }
+
+  .timeline-container {
+    width: 100%; height: auto;
+    display: flex; flex-direction: column; gap: 2rem;
+    transform: none !important;
+  }
+  .timeline-svg { display: none; }
+
+  .timeline-node {
+    position: relative;
+    left: auto !important; top: auto !important;
+    transform: none !important;
+    display: flex; gap: 1.25rem; align-items: flex-start;
+    width: 100%;
+  }
+  .node-dot { flex-shrink: 0; margin-top: 0.4rem; }
+  .node-blurb {
+    position: relative; width: 100%;
+    left: auto !important; right: auto !important; top: auto !important;
+    transform: none !important;
+    opacity: 1; pointer-events: auto;
+    background: var(--bg-card);
+  }
+}
