@@ -30,7 +30,7 @@
     draw() {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(124, 92, 252, ${this.opacity})`;
+      ctx.fillStyle = `rgba(59, 130, 246, ${this.opacity})`;
       ctx.fill();
     }
   }

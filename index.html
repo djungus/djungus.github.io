@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>djungus — Developer & Creator</title>
-  <meta name="description" content="Personal portfolio of djungus — coding projects, personal creations, and reading notes.">
+  <title>Daniel | djungus</title>
+  <meta name="description" content="Personal portfolio of Daniel. Projects, writing, and reading notes.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
       <a href="index.html" class="nav-logo">djungus<span class="logo-dot">.</span></a>
       <div class="nav-links">
         <a href="projects.html" class="nav-link">Projects</a>
-        <a href="code.html" class="nav-link">Code</a>
+        <a href="writing.html" class="nav-link">Writing</a>
         <a href="reading.html" class="nav-link">Reading</a>
       </div>
       <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
@@ -30,28 +30,24 @@
     <!-- Mobile menu -->
     <div class="mobile-menu" id="mobile-menu">
       <a href="projects.html" class="mobile-link">Projects</a>
-      <a href="code.html" class="mobile-link">Code</a>
+      <a href="writing.html" class="mobile-link">Writing</a>
       <a href="reading.html" class="mobile-link">Reading</a>
     </div>
   </nav>
 
   <!-- Hero Section -->
   <section id="hero" class="section hero-section">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="badge-dot"></span>
-        <span>Available for collaboration</span>
+    <div class="hero-layout">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="title-line">Hi, I'm <span class="gradient-text">Daniel</span></span>
+        </h1>
+        <p class="hero-subtitle">
+          Always looking for reading, music or life recommendations! This is my attempt to showcase more of the inside of my head.
+        </p>
       </div>
-      <h1 class="hero-title">
-        <span class="title-line">Hi, I'm <span class="gradient-text">djungus</span></span>
-        <span class="title-line">I build things for the web.</span>
-      </h1>
-      <p class="hero-subtitle">
-        Developer, creator, and lifelong learner. I craft interactive experiences, 
-        tinker with personal projects, and document what I read along the way.
-      </p>
 
-      <!-- Navigation Cards -->
+      <!-- Navigation Cards (right side) -->
       <div class="landing-cards">
         <a href="projects.html" class="landing-card">
           <div class="landing-card-icon">
@@ -64,13 +60,13 @@
           <svg class="landing-card-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
 
-        <a href="code.html" class="landing-card">
+        <a href="writing.html" class="landing-card">
           <div class="landing-card-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
           </div>
           <div class="landing-card-text">
-            <h3>Code</h3>
-            <p>Serious builds, open source, and technical deep dives.</p>
+            <h3>Writing</h3>
+            <p>Essays, reflections, and things I've been thinking about.</p>
           </div>
           <svg class="landing-card-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -81,12 +77,11 @@
           </div>
           <div class="landing-card-text">
             <h3>Reading</h3>
-            <p>Books that have shaped my thinking — past, present, and future.</p>
+            <p>Books that have shaped my thinking, past, present, and future.</p>
           </div>
           <svg class="landing-card-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
-
     </div>
     <div class="scroll-indicator">
       <div class="scroll-line"></div>
@@ -98,7 +93,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <span class="footer-logo">djungus<span class="logo-dot">.</span></span>
-      <span class="footer-copy">© 2026 · Built from scratch with ♥</span>
+      <span class="footer-copy">&copy; 2026</span>
     </div>
   </footer>
 

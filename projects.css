@@ -61,6 +61,26 @@
   50% { transform: translateY(-8px); }
 }
 
+/* djungus.github.io card image */
+.card-image-site {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #0c1220 0%, #1e293b 50%, #0f172a 100%);
+  position: relative;
+  overflow: hidden;
+}
+.card-image-site::before {
+  content: '🌐';
+  font-size: 3rem;
+  animation: float 3s ease-in-out infinite;
+}
+.card-image-site::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.12), transparent 70%);
+}
+
 /* My Journey card image */
 .card-image-journey {
   width: 100%; height: 100%;
@@ -84,12 +104,13 @@
 
 .card-content { padding: 1.5rem; }
 .card-tags { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
-.tag { font-size: 0.7rem; font-weight: 600; padding: 0.25rem 0.75rem; border-radius: 999px; background: rgba(124,92,252,0.1); color: var(--accent-2); letter-spacing: 0.03em; }
+.tag { font-size: 0.7rem; font-weight: 600; padding: 0.25rem 0.75rem; border-radius: 999px; background: rgba(59,130,246,0.1); color: var(--accent-2); letter-spacing: 0.03em; }
 .tag-python { background: rgba(55, 118, 171, 0.15); color: #5ba0d0; }
 .tag-ai { background: rgba(251, 191, 36, 0.12); color: #fbbf24; }
 .tag-actions { background: rgba(74, 222, 128, 0.12); color: #4ade80; }
 .tag-interactive { background: rgba(244, 63, 94, 0.12); color: #fb7185; }
 .tag-svg { background: rgba(56, 189, 248, 0.12); color: #38bdf8; }
+.tag-html { background: rgba(241, 224, 90, 0.12); color: #f1e05a; }
 
 .card-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
 .card-description { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem; }

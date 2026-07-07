@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writing - djungus</title>
+  <meta name="description" content="Writing and essays by Daniel.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .writing-hero {
+      position: relative; z-index: 1;
+      padding: 10rem 2rem 3rem;
+      max-width: 1200px; margin: 0 auto;
+      animation: fadeInUp 0.6s ease both;
+    }
+    .writing-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700; letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .writing-subtitle { font-size: 1.1rem; color: var(--text-secondary); max-width: 500px; }
+    .coming-soon-section {
+      position: relative; z-index: 1;
+      padding: 4rem 2rem 10rem;
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: center;
+    }
+    .coming-soon-card {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 3rem 4rem;
+      text-align: center;
+      max-width: 500px; width: 100%;
+      animation: fadeInUp 0.6s ease 0.3s both;
+    }
+    .coming-soon-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+    .coming-soon-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .coming-soon-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">djungus<span class="logo-dot">.</span></a>
+      <div class="nav-links">
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="writing.html" class="nav-link active">Writing</a>
+        <a href="reading.html" class="nav-link">Reading</a>
+      </div>
+      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="projects.html" class="mobile-link">Projects</a>
+      <a href="writing.html" class="mobile-link">Writing</a>
+      <a href="reading.html" class="mobile-link">Reading</a>
+    </div>
+  </nav>
+
+  <header class="writing-hero">
+    <span class="section-tag">02</span>
+    <h1 class="writing-title">Writing</h1>
+    <p class="writing-subtitle">Essays, reflections, and things I've been thinking about.</p>
+  </header>
+
+  <section class="coming-soon-section">
+    <div class="coming-soon-card">
+      <span class="coming-soon-icon">✍️</span>
+      <h2>Coming soon...</h2>
+      <p>This section is still being written. Check back later for essays and reflections.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">djungus<span class="logo-dot">.</span></span>
+      <span class="footer-copy">&copy; 2026</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

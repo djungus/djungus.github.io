@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reading — djungus</title>
+  <title>Reading | djungus</title>
   <meta name="description" content="Books I've read, what I'm reading now, and what's on deck.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="reading.css?v=3">
+  <link rel="stylesheet" href="reading.css?v=4">
 </head>
 <body>
   <canvas id="bg-canvas"></canvas>
@@ -20,7 +20,7 @@
       <a href="index.html" class="nav-logo">djungus<span class="logo-dot">.</span></a>
       <div class="nav-links">
         <a href="projects.html" class="nav-link">Projects</a>
-        <a href="code.html" class="nav-link">Code</a>
+        <a href="writing.html" class="nav-link">Writing</a>
         <a href="reading.html" class="nav-link active">Reading</a>
       </div>
       <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@
     </div>
     <div class="mobile-menu" id="mobile-menu">
       <a href="projects.html" class="mobile-link">Projects</a>
-      <a href="code.html" class="mobile-link">Code</a>
+      <a href="writing.html" class="mobile-link">Writing</a>
       <a href="reading.html" class="mobile-link">Reading</a>
     </div>
   </nav>
@@ -39,7 +39,7 @@
     <div class="hero-content">
       <span class="section-tag">03</span>
       <h1 class="reading-title">The Bookshelf</h1>
-      <p class="reading-subtitle">Books that have shaped my thinking — past, present, and future.</p>
+      <p class="reading-subtitle">Books that have shaped my thinking, past, present, and future.</p>
     </div>
     
     <div class="legend-wheel-container">
@@ -67,16 +67,30 @@
         <div class="shelf">
           <div class="shelf-books">
 
-            <!-- Currently reading — leaning -->
-            <div class="book leaning current-book" data-title="Little Fires Everywhere" data-author="Celeste Ng" data-status="reading" data-rating="—" data-notes="6 chapters in during finals week :D" style="--book-color: #ecc94b; --book-height: 190px; --book-width: 36px; --text-color: #1a1a1a;">
+            <!-- Currently reading: Looking for Alaska (leaning) -->
+            <div class="book leaning current-book" data-title="Looking for Alaska" data-author="John Green" data-status="reading" data-rating="" data-notes="" style="--book-color: #1e40af; --book-height: 190px; --book-width: 34px; --text-color: #fff;">
               <div class="book-spine">
-                <span class="spine-title">Little Fires Everywhere</span>
-                <span class="spine-author">Celeste Ng</span>
+                <span class="spine-title">Looking for Alaska</span>
+                <span class="spine-author">Green</span>
               </div>
               <div class="book-status-dot"></div>
             </div>
 
-            <!-- Finished books — upright -->
+            <!-- Finished books -->
+            <div class="book" data-title="Little Fires Everywhere" data-author="Celeste Ng" data-status="finished" data-rating="" data-notes="" style="--book-color: #ecc94b; --book-height: 190px; --book-width: 36px; --text-color: #1a1a1a;">
+              <div class="book-spine">
+                <span class="spine-title">Little Fires Everywhere</span>
+                <span class="spine-author">Celeste Ng</span>
+              </div>
+            </div>
+
+            <div class="book" data-title="Maybe You Should Talk to Someone" data-author="Lori Gottlieb" data-status="finished" data-rating="" data-notes="" style="--book-color: #9f7aea; --book-height: 195px; --book-width: 38px; --text-color: #fff;">
+              <div class="book-spine">
+                <span class="spine-title">Talk to Someone</span>
+                <span class="spine-author">Gottlieb</span>
+              </div>
+            </div>
+
             <div class="book" data-title="Range" data-author="David Epstein" data-status="finished" data-rating="★★★★" data-notes="4/12/26" style="--book-color: #4c51bf; --book-height: 180px; --book-width: 30px; --text-color: #fff;">
               <div class="book-spine">
                 <span class="spine-title">Range</span>
@@ -84,49 +98,49 @@
               </div>
             </div>
 
-            <div class="book" data-title="Never Let Me Go" data-author="Kazuo Ishiguro" data-status="finished" data-rating="★★★★" data-notes="To be added" style="--book-color: #d69e2e; --book-height: 185px; --book-width: 32px; --text-color: #1a1a1a;">
+            <div class="book" data-title="Never Let Me Go" data-author="Kazuo Ishiguro" data-status="finished" data-rating="★★★★" data-notes="" style="--book-color: #d69e2e; --book-height: 185px; --book-width: 32px; --text-color: #1a1a1a;">
               <div class="book-spine">
                 <span class="spine-title">Never Let Me Go</span>
                 <span class="spine-author">Ishiguro</span>
               </div>
             </div>
             
-            <div class="book" data-title="The Magic Fish" data-author="Trung Le Nguyen" data-status="finished" data-rating="★★★★★" data-notes="To be added" style="--book-color: #dd6b20; --book-height: 205px; --book-width: 34px; --text-color: #fff;">
+            <div class="book" data-title="The Magic Fish" data-author="Trung Le Nguyen" data-status="finished" data-rating="★★★★★" data-notes="" style="--book-color: #dd6b20; --book-height: 205px; --book-width: 34px; --text-color: #fff;">
               <div class="book-spine">
                 <span class="spine-title">The Magic Fish</span>
                 <span class="spine-author">Nguyen</span>
               </div>
             </div>
 
-            <div class="book" data-title="Minor Feelings" data-author="Cathy Park Hong" data-status="finished" data-rating="★★★★" data-notes="To be added" style="--book-color: #2f855a; --book-height: 175px; --book-width: 30px; --text-color: #fff;">
+            <div class="book" data-title="Minor Feelings" data-author="Cathy Park Hong" data-status="finished" data-rating="★★★★" data-notes="" style="--book-color: #2f855a; --book-height: 175px; --book-width: 30px; --text-color: #fff;">
               <div class="book-spine">
                 <span class="spine-title">Minor Feelings</span>
                 <span class="spine-author">Hong</span>
               </div>
             </div>
 
-            <div class="book" data-title="A Beautifully Foolish Endeavor" data-author="Hank Green" data-status="finished" data-rating="★★★★" data-notes="To be added" style="--book-color: #1a202c; --book-height: 195px; --book-width: 38px; --text-color: #f0f0f0;">
+            <div class="book" data-title="A Beautifully Foolish Endeavor" data-author="Hank Green" data-status="finished" data-rating="★★★★" data-notes="" style="--book-color: #1a202c; --book-height: 195px; --book-width: 38px; --text-color: #f0f0f0;">
               <div class="book-spine">
                 <span class="spine-title">Foolish Endeavor</span>
                 <span class="spine-author">Green</span>
               </div>
             </div>
 
-            <div class="book" data-title="Blink" data-author="Malcolm Gladwell" data-status="finished" data-rating="★★★★" data-notes="To be added" style="--book-color: #5a67d8; --book-height: 180px; --book-width: 30px; --text-color: #fff;">
+            <div class="book" data-title="Blink" data-author="Malcolm Gladwell" data-status="finished" data-rating="★★★★" data-notes="" style="--book-color: #5a67d8; --book-height: 180px; --book-width: 30px; --text-color: #fff;">
               <div class="book-spine">
                 <span class="spine-title">Blink</span>
                 <span class="spine-author">Gladwell</span>
               </div>
             </div>
 
-            <div class="book" data-title="The Anthropocene Reviewed" data-author="John Green" data-status="finished" data-rating="★★★★★" data-notes="To be added" style="--book-color: #48bb78; --book-height: 185px; --book-width: 34px; --text-color: #1a1a1a;">
+            <div class="book" data-title="The Anthropocene Reviewed" data-author="John Green" data-status="finished" data-rating="★★★★★" data-notes="" style="--book-color: #48bb78; --book-height: 185px; --book-width: 34px; --text-color: #1a1a1a;">
               <div class="book-spine">
                 <span class="spine-title">Anthropocene Reviewed</span>
                 <span class="spine-author">Green</span>
               </div>
             </div>
 
-            <div class="book" data-title="On Earth We're Briefly Gorgeous" data-author="Ocean Vuong" data-status="finished" data-rating="★★★★" data-notes="To be added" style="--book-color: #e53e3e; --book-height: 185px; --book-width: 32px; --text-color: #fff;">
+            <div class="book" data-title="On Earth We're Briefly Gorgeous" data-author="Ocean Vuong" data-status="finished" data-rating="★★★★" data-notes="" style="--book-color: #e53e3e; --book-height: 185px; --book-width: 32px; --text-color: #fff;">
               <div class="book-spine">
                 <span class="spine-title">Briefly Gorgeous</span>
                 <span class="spine-author">Vuong</span>
@@ -149,49 +163,49 @@
               </div>
             </div>
 
-            <div class="book" data-title="Turtles All the Way Down" data-author="John Green" data-status="finished" data-rating="★★★★" data-notes="To be added" style="--book-color: #2d3748; --book-height: 190px; --book-width: 34px; --text-color: #fff;">
+            <div class="book" data-title="Turtles All the Way Down" data-author="John Green" data-status="finished" data-rating="★★★★" data-notes="" style="--book-color: #2d3748; --book-height: 190px; --book-width: 34px; --text-color: #fff;">
               <div class="book-spine">
                 <span class="spine-title">Turtles All the Way Down</span>
                 <span class="spine-author">Green</span>
               </div>
             </div>
 
-            <div class="book" data-title="An Absolutely Remarkable Thing" data-author="Hank Green" data-status="finished" data-rating="★★★★" data-notes="To be added" style="--book-color: #d69e2e; --book-height: 195px; --book-width: 38px; --text-color: #1a1a1a;">
+            <div class="book" data-title="An Absolutely Remarkable Thing" data-author="Hank Green" data-status="finished" data-rating="★★★★" data-notes="" style="--book-color: #d69e2e; --book-height: 195px; --book-width: 38px; --text-color: #1a1a1a;">
               <div class="book-spine">
                 <span class="spine-title">Remarkable Thing</span>
                 <span class="spine-author">Green</span>
               </div>
             </div>
 
-            <div class="book" data-title="The Boy, the Mole, the Fox and the Horse" data-author="Charlie Mackesy" data-status="finished" data-rating="★★★★★" data-notes="To be added" style="--book-color: #ed8936; --book-height: 190px; --book-width: 32px; --text-color: #1a1a1a;">
+            <div class="book" data-title="The Boy, the Mole, the Fox and the Horse" data-author="Charlie Mackesy" data-status="finished" data-rating="★★★★★" data-notes="" style="--book-color: #ed8936; --book-height: 190px; --book-width: 32px; --text-color: #1a1a1a;">
               <div class="book-spine">
                 <span class="spine-title">The Boy, the Mole...</span>
                 <span class="spine-author">Mackesy</span>
               </div>
             </div>
 
-            <div class="book" data-title="The Happiness Hypothesis" data-author="Jonathan Haidt" data-status="finished" data-rating="★★★★" data-notes="To be added" style="--book-color: #805ad5; --book-height: 185px; --book-width: 34px; --text-color: #fff;">
+            <div class="book" data-title="The Happiness Hypothesis" data-author="Jonathan Haidt" data-status="finished" data-rating="★★★★" data-notes="" style="--book-color: #805ad5; --book-height: 185px; --book-width: 34px; --text-color: #fff;">
               <div class="book-spine">
                 <span class="spine-title">The Happiness Hypothesis</span>
                 <span class="spine-author">Haidt</span>
               </div>
             </div>
 
-            <div class="book" data-title="Masculinity Parable" data-author="Myles Taylor" data-status="finished" data-rating="★★★★" data-notes="To be added" style="--book-color: #c53030; --book-height: 175px; --book-width: 28px; --text-color: #fff;">
+            <div class="book" data-title="Masculinity Parable" data-author="Myles Taylor" data-status="finished" data-rating="★★★★" data-notes="" style="--book-color: #c53030; --book-height: 175px; --book-width: 28px; --text-color: #fff;">
               <div class="book-spine">
                 <span class="spine-title">Masculinity Parable</span>
                 <span class="spine-author">Taylor</span>
               </div>
             </div>
 
-            <div class="book" data-title="You Could Make This Place Beautiful" data-author="Maggie Smith" data-status="finished" data-rating="★★★★" data-notes="To be added" style="--book-color: #38a169; --book-height: 175px; --book-width: 30px; --text-color: #fff;">
+            <div class="book" data-title="You Could Make This Place Beautiful" data-author="Maggie Smith" data-status="finished" data-rating="★★★★" data-notes="" style="--book-color: #38a169; --book-height: 175px; --book-width: 30px; --text-color: #fff;">
               <div class="book-spine">
                 <span class="spine-title">Make This Place Beautiful</span>
                 <span class="spine-author">Smith</span>
               </div>
             </div>
 
-            <div class="book" data-title="Stolen Focus" data-author="Johann Hari" data-status="finished" data-rating="★★★★" data-notes="To be added" style="--book-color: #4a5568; --book-height: 195px; --book-width: 36px; --text-color: #fff;">
+            <div class="book" data-title="Stolen Focus" data-author="Johann Hari" data-status="finished" data-rating="★★★★" data-notes="" style="--book-color: #4a5568; --book-height: 195px; --book-width: 36px; --text-color: #fff;">
               <div class="book-spine">
                 <span class="spine-title">Stolen Focus</span>
                 <span class="spine-author">Hari</span>
@@ -210,23 +224,23 @@
         <div class="desk">
           <div class="book-pile">
 
-            <div class="pile-book" data-title="The Let-Them Theory" data-author="Mel Robbins" data-notes="To be added" style="--pile-color: #6b46c1; --pile-height: 14px; --pile-width: 200px; --text-color: #fff;">
+            <div class="pile-book" data-title="The Let-Them Theory" data-author="Mel Robbins" data-notes="" style="--pile-color: #6b46c1; --pile-height: 14px; --pile-width: 200px; --text-color: #fff;">
               <span class="pile-title">The Let-Them Theory</span>
             </div>
 
-            <div class="pile-book" data-title="Time is a Mother" data-author="Ocean Vuong" data-notes="To be added" style="--pile-color: #e53e3e; --pile-height: 12px; --pile-width: 175px; --text-color: #fff;">
+            <div class="pile-book" data-title="Time is a Mother" data-author="Ocean Vuong" data-notes="" style="--pile-color: #e53e3e; --pile-height: 12px; --pile-width: 175px; --text-color: #fff;">
               <span class="pile-title">Time is a Mother</span>
             </div>
 
-            <div class="pile-book" data-title="The Three-Body Problem" data-author="Liu Cixin" data-notes="Hard sci-fi that's supposedly mind-blowing. Can't wait." style="--pile-color: #f7fafc; --pile-height: 16px; --pile-width: 190px; --text-color: #1a1a1a;">
+            <div class="pile-book" data-title="The Three-Body Problem" data-author="Liu Cixin" data-notes="" style="--pile-color: #f7fafc; --pile-height: 16px; --pile-width: 190px; --text-color: #1a1a1a;">
               <span class="pile-title">The Three-Body Problem</span>
             </div>
 
-            <div class="pile-book" data-title="Tomorrow, and Tomorrow, and Tomorrow" data-author="Gabrielle Zevin" data-notes="To be added" style="--pile-color: #ecc94b; --pile-height: 18px; --pile-width: 205px; --text-color: #1a1a1a;">
+            <div class="pile-book" data-title="Tomorrow, and Tomorrow, and Tomorrow" data-author="Gabrielle Zevin" data-notes="" style="--pile-color: #ecc94b; --pile-height: 18px; --pile-width: 205px; --text-color: #1a1a1a;">
               <span class="pile-title">Tomorrow, and Tomorrow, and Tomorrow</span>
             </div>
 
-            <div class="pile-book" data-title="Hard-Boiled Wonderland and the End of the World" data-author="Haruki Murakami" data-notes="To be added" style="--pile-color: #e2e8f0; --pile-height: 15px; --pile-width: 185px; --text-color: #1a1a1a;">
+            <div class="pile-book" data-title="Hard-Boiled Wonderland and the End of the World" data-author="Haruki Murakami" data-notes="" style="--pile-color: #e2e8f0; --pile-height: 15px; --pile-width: 185px; --text-color: #1a1a1a;">
               <span class="pile-title">Hard-Boiled Wonderland</span>
             </div>
 
@@ -260,11 +274,11 @@
   <footer class="footer">
     <div class="footer-inner">
       <span class="footer-logo">djungus<span class="logo-dot">.</span></span>
-      <span class="footer-copy">© 2026 · Built from scratch with ♥</span>
+      <span class="footer-copy">&copy; 2026</span>
     </div>
   </footer>
 
   <script src="script.js"></script>
-  <script src="reading.js?v=3"></script>
+  <script src="reading.js?v=4"></script>
 </body>
 </html>
