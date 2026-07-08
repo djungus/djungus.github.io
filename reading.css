@@ -362,15 +362,34 @@
   box-shadow: 4px 4px 16px rgba(0,0,0,0.4);
 }
 
+.modal-tags {
+  display: flex; gap: 0.5rem; flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
 .modal-status {
   font-size: 0.7rem; font-weight: 600;
   padding: 0.25rem 0.75rem; border-radius: 999px;
   text-transform: uppercase; letter-spacing: 0.05em;
-  margin-bottom: 1rem; display: inline-block;
+  display: inline-block;
 }
 .modal-status.reading { background: rgba(56,189,248,0.15); color: #38bdf8; }
 .modal-status.finished { background: rgba(74,222,128,0.15); color: #4ade80; }
 .modal-status.to-read { background: rgba(251,146,60,0.15); color: #fb923c; }
+
+.modal-genre {
+  font-size: 0.7rem; font-weight: 600;
+  padding: 0.25rem 0.75rem; border-radius: 999px;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  display: inline-block;
+}
+.genre-psychology { background: rgba(124,92,252,0.15); color: #a78bfa; }
+.genre-memoir { background: rgba(251,146,60,0.15); color: #fb923c; }
+.genre-memoirs { background: rgba(251,146,60,0.15); color: #fb923c; }
+.genre-fiction { background: rgba(236,201,75,0.15); color: #ecc94b; }
+.genre-poetry { background: rgba(244,63,94,0.15); color: #fb7185; }
+.genre-scifi-fantasy { background: rgba(56,189,248,0.15); color: #38bdf8; }
+.genre-short-stories { background: rgba(74,222,128,0.15); color: #4ade80; }
 
 .modal-title {
   font-family: 'Playfair Display', serif;

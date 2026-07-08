@@ -17,6 +17,15 @@ function openModal(data) {
     : 'Want to Read';
   status.className = 'modal-status ' + (data.status || 'to-read');
 
+  const genreEl = document.getElementById('modal-genre');
+  if (data.genre) {
+    genreEl.textContent = data.genre;
+    genreEl.className = 'modal-genre genre-' + data.genre.toLowerCase().replace(/\//g, '-');
+    genreEl.style.display = '';
+  } else {
+    genreEl.style.display = 'none';
+  }
+
   const preview = document.getElementById('modal-preview');
   preview.style.background = data.color;
   preview.style.backgroundImage = 'none';
@@ -61,6 +70,7 @@ document.querySelectorAll('.book').forEach(book => {
       title: book.dataset.title,
       author: book.dataset.author,
       status: book.dataset.status,
+      genre: book.dataset.genre || '',
       rating: book.dataset.rating,
       notes: book.dataset.notes,
       color: getComputedStyle(book).getPropertyValue('--book-color').trim()
@@ -75,6 +85,7 @@ document.querySelectorAll('.pile-book').forEach(book => {
       title: book.dataset.title,
       author: book.dataset.author,
       status: 'to-read',
+      genre: book.dataset.genre || '',
       rating: '',
       notes: book.dataset.notes,
       color: getComputedStyle(book).getPropertyValue('--pile-color').trim()
