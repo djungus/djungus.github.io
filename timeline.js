@@ -344,7 +344,7 @@ function setupPreviewScroll() {
         const r = Math.floor(15 + (30 - 15) * scrollPercent);
         const g = Math.floor(23 + (27 - 23) * scrollPercent);
         const b = Math.floor(42 + (75 - 42) * scrollPercent);
-        document.body.style.backgroundColor = \`rgb(\${r}, \${g}, \${b})\`;
+        document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     };
     
     window.addEventListener('scroll', scrollListener);
