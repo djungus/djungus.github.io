@@ -151,14 +151,14 @@ body.reading-page #bg-canvas {
 
 .duck-glow {
   position: absolute;
-  bottom: 10px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 600px;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: 900px;
   background: radial-gradient(circle at center, rgba(253, 230, 138, 0.15) 0%, rgba(217, 119, 6, 0.05) 30%, transparent 70%);
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
 }
 
 .room-scene {
