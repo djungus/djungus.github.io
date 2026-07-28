@@ -111,6 +111,7 @@
 .tag-interactive { background: rgba(244, 63, 94, 0.12); color: #fb7185; }
 .tag-svg { background: rgba(56, 189, 248, 0.12); color: #38bdf8; }
 .tag-html { background: rgba(241, 224, 90, 0.12); color: #f1e05a; }
+.tag-shutdown { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
 
 .card-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
 .card-description { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem; }
