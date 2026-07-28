@@ -1,233 +1,207 @@
-/* ========== TIMELINE PAGE ========== */
-
-/* ---- Page Hero ---- */
-.timeline-hero {
-  position: relative; z-index: 1;
-  padding: 10rem 2rem 3rem;
-  max-width: 1200px; margin: 0 auto;
-  animation: fadeInUp 0.6s ease both;
-}
-.timeline-page-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 700; letter-spacing: -0.02em;
-  margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, var(--accent-2), #f43f5e, var(--accent-3));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.timeline-page-subtitle {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  max-width: 560px;
+:root {
+    --bg-color: #0f172a;
+    --text-color: #f8fafc;
+    --primary: #3b82f6;
+    --node-bg: rgba(30, 41, 59, 0.8);
+    --node-border: rgba(255, 255, 255, 0.1);
+    --path-color: #60a5fa;
+    --glass-bg: rgba(15, 23, 42, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
 }
 
-/* ---- Section Wrapper ---- */
-.timeline-section {
-  position: relative;
-  z-index: 1;
-  padding: 2rem 2rem 10rem;
-  overflow: hidden;
-  transition: background 1s ease;
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+    transition: background-color 0.5s ease;
 }
 
-/* ---- Pink → Blue Background Glow ---- */
-.timeline-section::before,
-.timeline-section::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  transition: opacity 1.2s ease-in-out;
-}
-.timeline-section::before {
-  background:
-    radial-gradient(circle at 50% 20%, rgba(244, 63, 94, 0.07) 0%, transparent 55%),
-    radial-gradient(circle at 30% 50%, rgba(192, 132, 252, 0.04) 0%, transparent 45%);
-  opacity: 1;
-}
-.timeline-section::after {
-  background:
-    radial-gradient(circle at 50% 60%, rgba(59, 130, 246, 0.07) 0%, transparent 55%),
-    radial-gradient(circle at 70% 35%, rgba(56, 189, 248, 0.04) 0%, transparent 45%);
-  opacity: 0;
-}
-.timeline-section.state-blue::before { opacity: 0; }
-.timeline-section.state-blue::after  { opacity: 1; }
-
-/* ---- Track Container ---- */
-.timeline-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  min-height: 1950px;
-  display: flex;
-  justify-content: center;
-}
-.timeline-container {
-  position: relative;
-  width: 800px;
-  height: 1850px;
-  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
-  transform-origin: center top;
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
 }
 
-/* ---- SVG Tracks ---- */
-.timeline-svg {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  overflow: visible;
-  pointer-events: none;
-}
-.timeline-track {
-  stroke: rgba(255,255,255,0.06);
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
-}
-.timeline-progress {
-  stroke: url(#timeline-grad);
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
-  stroke-dasharray: 6000;
-  stroke-dashoffset: 6000;
-  transition: stroke-dashoffset 0.08s linear;
-  filter: drop-shadow(0 0 6px rgba(124,92,252,0.35));
+.toolbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    z-index: 1000;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* ---- Node Dots ---- */
-.timeline-node {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  cursor: pointer;
-}
-.node-dot {
-  width: 14px; height: 14px;
-  border-radius: 50%;
-  background: var(--bg-primary);
-  border: 3px solid var(--text-muted);
-  transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
-}
-.timeline-node:hover .node-dot {
-  border-color: var(--accent-2);
-  background: #fff;
-  transform: scale(1.4);
-  box-shadow: 0 0 18px var(--accent-2);
-}
-.timeline-section.state-blue .timeline-node:hover .node-dot {
-  border-color: var(--accent-3);
-  box-shadow: 0 0 18px var(--accent-3);
+.toolbar button {
+    background: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--glass-border);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    transition: all 0.2s ease;
 }
 
-/* ---- Blurb Cards (hidden until hover) ---- */
-.node-blurb {
-  position: absolute;
-  width: 260px;
-  padding: 1.15rem 1.25rem;
-  background: rgba(14,14,20,0.75);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  pointer-events: none;
-
-  /* hidden by default */
-  opacity: 0;
-  transform: translateY(-50%) scale(0.92);
-  transition: all 0.4s cubic-bezier(0.25,1,0.5,1);
+.toolbar button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Side positioning */
-.timeline-node[data-side="right"] .node-blurb {
-  left: 36px; top: 50%;
-  transform-origin: left center;
-}
-.timeline-node[data-side="left"] .node-blurb {
-  right: 36px; top: 50%;
-  transform-origin: right center;
-}
-
-/* Visible on hover */
-.timeline-node:hover .node-blurb {
-  opacity: 1;
-  transform: translateY(-50%) scale(1);
-  pointer-events: auto;
-  border-color: rgba(255,255,255,0.14);
-  box-shadow: 0 12px 36px rgba(0,0,0,0.45),
-              inset 0 1px 0 rgba(255,255,255,0.05);
-}
-
-/* Blurb inner typography */
-.node-year {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--accent-1);
-  display: block;
-  margin-bottom: 0.2rem;
-}
-.timeline-section.state-blue .node-year { color: var(--accent-3); }
-
-.node-blurb h4 {
-  font-size: 0.95rem;
-  font-weight: 700;
-  margin-bottom: 0.3rem;
-  color: var(--text-secondary);
-  transition: color 0.3s ease;
-}
-.timeline-node:hover .node-blurb h4 { color: var(--text-primary); }
-
-.node-blurb p {
-  font-size: 0.82rem;
-  color: var(--text-secondary);
-  line-height: 1.55;
-  min-height: 0;
-}
-
-/* ---- Back Link ---- */
-.back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  transition: var(--transition);
-  margin-bottom: 1.5rem;
-}
-.back-link:hover { color: var(--text-primary); gap: 0.6rem; }
-
-/* ---- Responsive ---- */
-@media (max-width: 900px) {
-  .timeline-wrapper { min-height: auto; padding: 0 0.5rem; }
-
-  .timeline-container {
-    width: 100%; height: auto;
-    display: flex; flex-direction: column; gap: 2rem;
-    transform: none !important;
-  }
-  .timeline-svg { display: none; }
-
-  .timeline-node {
-    position: relative;
-    left: auto !important; top: auto !important;
-    transform: none !important;
-    display: flex; gap: 1.25rem; align-items: flex-start;
+#timeline-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-  }
-  .node-dot { flex-shrink: 0; margin-top: 0.4rem; }
-  .node-blurb {
-    position: relative; width: 100%;
-    left: auto !important; right: auto !important; top: auto !important;
-    transform: none !important;
-    opacity: 1; pointer-events: auto;
-    background: var(--bg-card);
-  }
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#timeline-path {
+    fill: none;
+    stroke: var(--path-color);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.6));
+    transition: stroke-dashoffset 0.1s;
+}
+
+#timeline-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.node {
+    position: absolute;
+    width: 250px;
+    background: var(--node-bg);
+    border: 1px solid var(--node-border);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    transform: translate(-50%, -50%);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.node.selected {
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+.node:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.node-year {
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 4px;
+    outline: none;
+    min-height: 1em;
+}
+
+.node-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    outline: none;
+    min-height: 1em;
+}
+
+.node-desc {
+    font-size: 14px;
+    color: #94a3b8;
+    margin: 0;
+    outline: none;
+    line-height: 1.5;
+    min-height: 1em;
+}
+
+[contenteditable="true"]:empty:before {
+    content: attr(data-placeholder);
+    color: rgba(255,255,255,0.3);
+    pointer-events: none;
+    display: block;
+}
+
+/* Drag Handle */
+.drag-handle {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    width: 32px;
+    height: 8px;
+    border-radius: 4px;
+    cursor: ns-resize;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+}
+
+.node:hover .drag-handle {
+    opacity: 1;
+}
+
+.node[data-axis="angle"] .drag-handle {
+    cursor: all-scroll;
+}
+
+.node-delete {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    line-height: 1;
+    z-index: 10;
+}
+
+.node:hover .node-delete {
+    display: flex;
+}
+
+.preview-mode .toolbar {
+    display: none;
+}
+
+.preview-mode .drag-handle,
+.preview-mode .node-delete {
+    display: none !important;
+}
+
+.preview-mode .node {
+    box-shadow: none;
+    border-color: var(--node-border);
+}
+
+.preview-mode .node.selected {
+    border-color: var(--node-border);
+    box-shadow: none;
 }
