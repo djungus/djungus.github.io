@@ -165,7 +165,6 @@ body.reading-page #bg-canvas {
   position: relative;
   padding: 4rem 0 6rem;
   z-index: 1;
-  overflow: hidden; /* Prevent massive glow from causing horizontal scroll */
 }
 .color-dot.psych { background: #6b46c1; }
 .color-dot.memoirs { background: #38a169; }
@@ -297,6 +296,7 @@ body.reading-page #bg-canvas {
   transform: rotate(-12deg) translateY(-8px);
   transform-origin: bottom left;
   margin-right: 16px;
+  margin-left: 20px;
 }
 .book.leaning:hover {
   transform: rotate(-12deg) translateY(-20px) !important;
