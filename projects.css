@@ -60,6 +60,15 @@
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
 }
+.tape-x {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: 
+    linear-gradient(45deg, transparent 47%, rgba(220, 38, 38, 0.85) 47%, rgba(220, 38, 38, 0.85) 53%, transparent 53%),
+    linear-gradient(-45deg, transparent 47%, rgba(220, 38, 38, 0.85) 47%, rgba(220, 38, 38, 0.85) 53%, transparent 53%);
+  pointer-events: none;
+}
 
 /* djungus.github.io card image */
 .card-image-site {
